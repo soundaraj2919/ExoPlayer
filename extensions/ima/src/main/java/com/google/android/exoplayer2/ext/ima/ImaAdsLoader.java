@@ -109,6 +109,7 @@ public final class ImaAdsLoader implements Player.Listener, AdsLoader {
     private final Context context;
 
     @Nullable private ImaSdkSettings imaSdkSettings;
+    @Nullable private AdsRenderingSettings adsRenderingSettings;
     @Nullable private AdErrorListener adErrorListener;
     @Nullable private AdEventListener adEventListener;
     @Nullable private VideoAdPlayer.VideoAdPlayerCallback videoAdPlayerCallback;
@@ -152,6 +153,11 @@ public final class ImaAdsLoader implements Player.Listener, AdsLoader {
      */
     public Builder setImaSdkSettings(ImaSdkSettings imaSdkSettings) {
       this.imaSdkSettings = checkNotNull(imaSdkSettings);
+      return this;
+    }
+    
+    public Builder setAdsRenderingSettings(AdsRenderingSettings adsRenderingSettings) {
+      this.adsRenderingSettings = checkNotNull(adsRenderingSettings);
       return this;
     }
 
@@ -378,6 +384,7 @@ public final class ImaAdsLoader implements Player.Listener, AdsLoader {
               adEventListener,
               videoAdPlayerCallback,
               imaSdkSettings,
+              adsRenderingSettings,
               debugModeEnabled),
           imaFactory);
     }
